@@ -27,6 +27,8 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "#1.2 Weather App by React Native \n.Demo Version",
+    "githubUrl": "https://github.com/esl1129/woogie-weather.git"
   }
 }

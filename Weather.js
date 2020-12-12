@@ -8,44 +8,44 @@ const weatherOptions = {
   Haze: {
     iconName: "weather-hazy",
     gradient: ["#4DA0B0", "#D39D38"],
-    title: "Haze",
-    subtitle: "Don't go out side",
+    title: "황사",
+    subtitle: "외부 활동을 자제해 주세요",
   },
   Thunderstorm: {
     iconName: "weather-lightning-rainy",
     gradient: ["#373B44", "#4286f4"],
-    title: "Thunder",
+    title: "천둥 번개",
     subtitle: "Watch Out!!",
   },
   Drizzle: {
     iconName: "weather-rainy",
     gradient: ["#0082c8", "#667db6"],
-    title: "Mist",
-    subtitle: "Bring an Umbrella",
+    title: "이슬 비",
+    subtitle: "외출 시 우산을 챙기세요",
   },
   Rain: {
     iconName: "weather-pouring",
     gradient: ["#1e3c72", "#2a5298"],
-    title: "Rainy",
-    subtitle: "Your clothes will get wet :(",
+    title: "비",
+    subtitle: "빗물에 바지가 젖을지도...?",
   },
   Snow: {
     iconName: "weather-snowy",
     gradient: ["#2980B9", "#6DD5FA", "#FFFFFF"],
-    title: "Snow",
+    title: "눈",
     subtitle: "You'll feel like you're in the frozen kingdom",
   },
   Clear: {
     iconName: "weather-sunny",
     gradient: ["#F37335", "#FDC830"],
-    title: "Sunny",
-    subtitle: "Clear Sky~.~",
+    title: "맑음",
+    subtitle: "하늘을 보세용용용요요요요요용요요요용",
   },
   Clouds: {
     iconName: "weather-cloudy",
     gradient: ["#D7D2CC", "#304352"],
-    title: "Clouds",
-      subtitle: "Hope the clouds Clear~.~",
+    title: "흐림",
+    subtitle: "비가 올 것만 같아...",
   },
 };
 
@@ -53,7 +53,7 @@ export default function Weather({ temp, condition }) {
   return (
     <LinearGradient
       // Background Linear Gradient
-      colors={weatherOptions["Thunderstorm"].gradient}
+      colors={weatherOptions[condition].gradient}
       style={styles.container}
     >
       <StatusBar barStyle="light-content" />
@@ -63,11 +63,13 @@ export default function Weather({ temp, condition }) {
           size={96}
           color="white"
         />
-        <Text style={styles.temp}>{temp}</Text>
+        <Text style={styles.temp}>{temp}º</Text>
       </View>
       <View style={{ ...styles.halfcontainer, ...styles.textContainer }}>
-              <Text style={styles.title}>{weatherOptions[condition].title}</Text>
-        <Text style={styles.subtitle}>{weatherOptions[condition].subtitle}</Text>
+        <Text style={styles.title}>{weatherOptions[condition].title}</Text>
+        <Text style={styles.subtitle}>
+          {weatherOptions[condition].subtitle}
+        </Text>
       </View>
     </LinearGradient>
   );
@@ -80,7 +82,6 @@ Weather.propTypes = {
     "Drizzle",
     "Rain",
     "Snow",
-    "Atmosphere",
     "Clear",
     "Clouds",
     "Haze",
